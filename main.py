@@ -45,7 +45,7 @@ def PlayTimeGenre(genre):
     # Encontrar el año con la máxima cantidad de minutos jugados
     año_max_jugado = df_agrupado.loc[df_agrupado['playtime_forever'].idxmax(), 'release_date']
 
-    return año_max_jugado
+    return print(f'El año mas jugado para género {genre} es {año_max_jugado}')
 
 @app.get('/UserForGenre')
 
@@ -62,8 +62,7 @@ def UserForGenre(genre):
     # Crear una lista de horas jugadas por año
     tiempo_jugado_por_año = df_usuario.groupby('release_date')['playtime_forever'].sum().to_dict()
 
-    return usuario_max_horas, tiempo_jugado_por_año
-
+    return print(f'El usuario que mas ha jugado videojuegos de tipo {genre} es {usuario_max_horas}, sus horas de juego se distribuyen asi {tiempo_jugado_por_año}')
 @app.get('/UsersRecommend')
 
 def UsersRecommend(year):
@@ -78,7 +77,7 @@ def UsersRecommend(year):
     # Contar la frecuencia de cada item y obtener el top 3
     top_games = merged_data['item_name'].value_counts().nlargest(3)
 
-    return top_games
+    return print(f'Los 3 juegos más recomendados para el año {year} son :{top_games}')
 
 @app.get('/UsersWorstDeveloper')
 
@@ -93,7 +92,7 @@ def UsersWorstDeveloper(year):
     # Contar la frecuencia de cada desarrollador y obtener el top 3
     top_developers = merged_data['developer'].value_counts().nlargest(3)
 
-    return top_developers
+    return print(f'Los peores desarrolladores del año {year} son {top_developers})
 
 @app.get('/sentiment_analysis')
 
@@ -117,5 +116,5 @@ def sentiment_analysis(developer_name):
         'Positivo': review_counts.get(2, 0)
     }
 
-    return result_dict
+    return print(f'Las reviews del desarrollador {developer_name} son:{result_dict}')
 
