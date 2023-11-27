@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import pandas as pd
 import ast
+import uvicorn
 
 app = FastAPI()
 
@@ -113,7 +114,3 @@ def sentiment_analysis(developer_name):
 
     return result_dict
 
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=8000)
