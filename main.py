@@ -92,7 +92,7 @@ def UsersWorstDeveloper(year):
     # Contar la frecuencia de cada desarrollador y obtener el top 3
     top_developers = merged_data['developer'].value_counts().nlargest(3)
 
-    return print(f'Los peores desarrolladores del año {year} son {top_developers})
+    return print(f'Los peores desarrolladores del año {year} son {top_developers}')
 
 @app.get('/sentiment_analysis')
 
