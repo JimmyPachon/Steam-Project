@@ -12,6 +12,9 @@ user_items=pd.read_csv('datos/user_items_reducido.csv',sep=';',encoding='utf-8')
 steam_games=pd.read_csv('datos/steam_games.csv',sep=';',encoding='utf-8')
 user_reviews=pd.read_csv('datos/user_reviews.csv',sep=';',encoding='utf-8')
 
+user_items['release_date'] = pd.to_numeric(user_items['release_date'], errors='coerce')
+user_reviews['review'] = pd.to_numeric(user_reviews['review'], errors='coerce')
+
 @app.get("/")
 def read_root():
     return {"Mensaje": "A continuación se encuentran las funciones solicitadas para el sistema de recomedacion de steam."}
