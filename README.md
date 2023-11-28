@@ -23,6 +23,7 @@ En la API encontrarás 6 funciones con las que podrás interactuar, cada una rea
 
 Por último se encuentra la función principal y el propósito principal de este proyecto:
 
+
 **recomendacion_juego( app_name ):** Ingresando el nombre de un juego, da como resultado los 5 juegos con mayor similitud encontrados en el dataset "steam_games.csv".
 
 *ACLARACIÓN IMPORTANTE:* Esta API es un DEMO, por lo tanto no cuenta con los datos completos de los items adquiridos por los usuarios debido a falta de recursos técnicos. Teniendo eso en cuenta, es probable que las dos primeras funciones no den la información correcta; sin embargo la función principal de recomendación de juegos es totalmente confiable y cuenta con la información disponible.
@@ -34,9 +35,13 @@ Para determinar la similitud de los videojuegos la API se basa en tres caracter�
 **¿Qué se puede mejorar de la API?**
 
 Hay muchas cosas por mejorar, para empezar los datasets se pueden normalizar para disminuir el tamaño de los archivos, además los mismos se podrían manipular en un formato .parquet para optimizar el rendimiento de la API y ocupar menos memoria.
+
 Se podría hacer scrapping en la página de STEAM para buscar los datos que faltan y pueden ser relevantes, así como se hizo scrapping en la página de WIKIPEDIA para obtener la mitad de las fechas de lanzamiento que faltaban en el ETL.
+
 Se puede llegar a mejorar la recomendación de juegos agregando un peso de importancia a las diferentes características, puede que importe más el género que el desarrollador por ejemplo. También se podría extrapolar a un sistema user-item donde se recomienden juegos que a otros usuarios les ha gustado.
+
 La primera impresión es importante, mejorar la interfaz gráfica de la API sería de gran importancia ya que por el momento es incómoda y muy superficial.
+
 Hay otros factores a tener en cuenta a la hora de recomendar un videojuego, por ejemplo el precio podría ser una forma de categorizarlos y sería una variable a tener en cuenta.
 
 **ARCHIVOS DEL REPOSITORIO**
