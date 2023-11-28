@@ -96,7 +96,7 @@ def UsersRecommend(year):
     top_games = merged_data['item_name'].value_counts()
     top_games= sorted(top_games, reverse=True)[0:3]
 
-    return {"Los 3 juegos más recomendados para este año son" : {"top 1": top_games[0],"top 2": top_games[1],"top3": top_games[2] }}
+    return {"Los 3 juegos más recomendados para este año son" : list(top_games)}
 
 @app.get('/UsersWorstDeveloper')
 
