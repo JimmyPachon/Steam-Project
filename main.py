@@ -38,7 +38,7 @@ user_items['genres'] = user_items['genres'].apply(convert_to_set)
 
 def PlayTimeGenre(genre):
 
-    logging.info(f"Solicitud para género: {genre}")
+    
    # Filtrar el DataFrame para el género específico
     df_genero = user_items[user_items['genres'].apply(lambda x: genre in x)]
 
@@ -48,7 +48,7 @@ def PlayTimeGenre(genre):
     # Encontrar el año con la máxima cantidad de minutos jugados
     year_max_jugado = df_agrupado.loc[df_agrupado['playtime_forever'].idxmax(), 'release_date']
 
-    return {"El año mas jugado para este género es": year_max_jugado} 
+    return {"El año mas jugado para este género es": {year_max_jugado}} 
 
 @app.get('/UserForGenre')
 
@@ -81,7 +81,7 @@ def UsersRecommend(year):
     # Contar la frecuencia de cada item y obtener el top 3
     top_games = merged_data['item_name'].value_counts().nlargest(3)
 
-    return {"Los 3 juegos más recomendados para este año son" :top_games}
+    return {"Los 3 juegos más recomendados para este año son" : {top_games}}
 
 @app.get('/UsersWorstDeveloper')
 
