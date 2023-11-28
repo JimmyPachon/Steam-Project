@@ -3,6 +3,8 @@ from fastapi.responses import JSONResponse
 import pandas as pd
 import ast
 import uvicorn
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
 
 app = FastAPI()
 
@@ -24,8 +26,10 @@ def convert_to_set(column):
         # Si hay un error al evaluar la cadena, puedes manejarlo de alguna manera
         return set('No data')
 
-# Aplicar la función a la columna 'genres'
+# Aplicar la función a la columna 'genres' y 'specs'
 user_items['genres'] = user_items['genres'].apply(convert_to_set)
+steam_games['genres'] = steam_games['genres'].apply(convert_to_set)
+steam_games['specs'] = steam_games['specs'].apply(convert_to_set)
 
 
 @app.get("/")
@@ -153,4 +157,36 @@ def sentiment_analysis(developer_name):
     }
 
     return {"Las reviews de este desarrollador son": result_dict}
+
+@app.get('/recomendacion_juego')
+
+def recomendacion_juego(juego):
+    
+    juego_seleccionado = steam_games[steam_games['app_name'] == juego]
+
+    if juego_seleccionado.empty:
+        return "El juego no se encuentra en el conjunto de datos."
+
+    # Crear un conjunto de datos con los juegos que no son el juego seleccionado
+    juegos_similares = steam_games[steam_games['app_name'] != juego].copy()  # Usar copy() para evitar SettingWithCopyWarning
+
+    # Convertir los conjuntos a cadenas antes de la concatenación
+    juego_combined_features = ' '.join(map(str, juego_seleccionado['specs'].values[0])) + ' ' + ' '.join(map(str, juego_seleccionado['genres'].values[0])) + ' ' + str(juego_seleccionado['developer'].values[0])
+    juegos_similares['combined_features'] = juegos_similares.apply(lambda row: ' '.join(map(str, row['specs'])) + ' ' + ' '.join(map(str, row['genres'])) + ' ' + str(row['developer']), axis=1)
+
+    # Utilizar TF-IDF Vectorizer para convertir el texto combinado en vectores
+    tfidf_vectorizer = TfidfVectorizer()
+    tfidf_matrix = tfidf_vectorizer.fit_transform(juegos_similares['combined_features'])
+
+    # Calcular la similitud del coseno entre el juego seleccionado y los demás juegos
+    cosine_similarities = linear_kernel(tfidf_matrix, tfidf_vectorizer.transform([juego_combined_features]))
+
+    # Obtener los índices de los juegos más similares
+    indices_similares = cosine_similarities.flatten().argsort()[:-6:-1]  # Tomar los 5 juegos más similares
+
+    # Obtener información de los juegos más similares
+    juegos_recomendados = steam_games.iloc[indices_similares]['app_name']
+    juegos_recomendados.reset_index(inplace=True,drop=True)
+
+    return {juegos_recomendados}
 
