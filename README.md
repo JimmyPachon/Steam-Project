@@ -1,6 +1,6 @@
 #**SISTEMA DE RECOMENDACIÓN PARA LA PLATAFORMA DE STEAM**\
 
-En el presente repositorio se entregan todos los Datasets y toda la documentación de una API que implementa un sistema de recomedación por similitud de items, también se entrega un link a los datos originales sin procesar y sin limpiar para posibles consultas o mejoras al proyecto. Encontrarás un análisis exploratorio de datos en el notebook "EDA.ipynb" donde se analizan principalmente los valores que faltan y los posibles outliers, también se encuentra el archivo principal de la API "main.py" donde se encuentran las funciones de consulta de datos.\n
+En el presente repositorio se entregan todos los Datasets y toda la documentación de una API que implementa un sistema de recomedación por similitud de items, también se entrega un link a los datos originales sin procesar y sin limpiar para posibles consultas o mejoras al proyecto. Encontrarás un análisis exploratorio de datos en el notebook "EDA.ipynb" donde se analizan principalmente los valores que faltan y los posibles outliers, también se encuentra el archivo principal de la API "main.py" donde se encuentran las funciones de consulta de datos. \n
 
 Si quiere interactuar con la API, te dejo el link a continuación:/n
 
