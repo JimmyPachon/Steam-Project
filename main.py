@@ -17,7 +17,7 @@ user_reviews['review'] = pd.to_numeric(user_reviews['review'], errors='coerce')
 
 @app.get("/")
 def read_root():
-    return {"Mensaje": "A continuación se encuentran las funciones solicitadas para el sistema de recomedacion de steam."}
+    return {"Mensaje": "A continuación se encuentran las funciones solicitadas para el sistema de recomedacion de steam, poner al final de la URL /docs."}
 
 # Función para convertir la cadena a un conjunto
 def convert_to_set(column):
@@ -38,7 +38,7 @@ user_items['genres'] = user_items['genres'].apply(convert_to_set)
 
 def PlayTimeGenre(genre):
 
-
+    logging.info(f"Solicitud para género: {genre}")
    # Filtrar el DataFrame para el género específico
     df_genero = user_items[user_items['genres'].apply(lambda x: genre in x)]
 
