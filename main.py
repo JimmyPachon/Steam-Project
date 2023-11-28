@@ -59,7 +59,7 @@ def PlayTimeGenre(genre):
 
         print("error4")
         
-        return {"El año mas jugado para este género es": ,year_max_jugado} 
+        return {"El año mas jugado para este género es": ,year_max_jugado:} 
 
 
 @app.get('/UserForGenre')
