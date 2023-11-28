@@ -99,9 +99,13 @@ def UsersRecommend(year):
     # Contar la frecuencia de cada item y obtener el top 3
     top_games = merged_data['item_name'].value_counts()
    
-    top_games=top_games.astype(int)
 
     top_games=top_games[0:3]
+
+    valores = top_games.values
+    indices = top_games.index
+
+    top_games= dict(zip(indices, valores))
 
     return {"Los 3 juegos más recomendados para este año son" : top_games}
 
@@ -120,10 +124,15 @@ def UsersWorstDeveloper(year):
 
     # Contar la frecuencia de cada desarrollador y obtener el top 3
     top_developers = merged_data['developer'].value_counts()
-   
-    top_developers=top_developers.astype(int)
 
     top_developers=top_developers[0:3]
+
+    top_games=top_games[0:3]
+
+    valores = top_games.values
+    indices = top_games.index
+
+    top_games= dict(zip(indices, valores))
 
     return {"Los peores desarrolladores de este año son" : top_developers}
 
