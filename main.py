@@ -86,7 +86,7 @@ def UserForGenre(genre):
 def UsersRecommend(year):
 
     # Filtrar user_reviews por el año dado y por la condición de recomendación y revisión
-    filtered_reviews = user_reviews[(user_reviews['posted'] == str(year)) & (user_reviews['recommend'] == "True") & ((user_reviews['review'] == "1") | (user_reviews['review'] == "2"))]
+    filtered_reviews = user_reviews[(user_reviews['posted'] == str(year)) & (user_reviews['recommend'] == True) & ((user_reviews['review'] == 1) | (user_reviews['review'] == 2))]
 
 
     # Merge para obtener los nombres de los items
@@ -103,7 +103,7 @@ def UsersRecommend(year):
 def UsersWorstDeveloper(year):
 
     # Filtrar user_reviews por el año dado y por la condición de no recomendación y revisión igual a 0
-    filtered_reviews = user_reviews[(user_reviews['posted'] == str(year)) & (user_reviews['recommend'] == 'False') & (user_reviews['review'] == 0)]
+    filtered_reviews = user_reviews[(user_reviews['posted'] == str(year)) & (user_reviews['recommend'] == False) & (user_reviews['review'] == 0)]
 
     # Merge para obtener los desarrolladores correspondientes
     merged_data = pd.merge(filtered_reviews, steam_games, on='item_id', how='left')
