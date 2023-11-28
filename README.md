@@ -10,9 +10,13 @@ Si quiere interactuar con la API, te dejo el link a continuación:
 En la API encontrarás 6 funciones con las que podrás interactuar, cada una realiza consultas muy específicas:
 
 **PlayTimeGenre( genre ):** Recibe como parámetro un género de videojuegos y te regresa el año en el que más se jugó dicho género.
+
 **UserForGenre( genre ):** Recibe como parámetro un género de videojuegos y regresa el ID del usuario con más minutos de juego para ese género, además da la distribución de tiempo de juego a lo largo de los años.
+
 **UsersRecommend( year ):** Recibe un año y da el TOP 3 juegos con mejor recibimiento por la comunidad de Steam en ese año.
+
 **UsersWorstDeveloper( year ):** Recibe un año y devuelve el TOP 3 desarrolladores peor calificados en ese año.
+
 **sentiment_analysis( developer_name ):** Recibe el nombre de una empresa desarrolladora de videojuegos y calcula cuántas reseñas positivas, neutrales y negativas tiene.
 
 Por último se encuentra la función principal y el propósito principal de este proyecto:
