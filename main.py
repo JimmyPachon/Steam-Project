@@ -63,7 +63,7 @@ def PlayTimeGenre(genre):
 
         
         
-        return int(year_max_jugado)
+        return {"El año más jugado para este género es:":int(year_max_jugado)}
 
 
 @app.get('/UserForGenre')
@@ -97,7 +97,7 @@ def UsersRecommend(year):
     # Contar la frecuencia de cada item y obtener el top 3
     top_games = merged_data['item_name'].value_counts().nlargest(3)
 
-    return {"Los 3 juegos más recomendados para este año son" : top_games}
+    return {"Los 3 juegos más recomendados para este año son" : set(top_games)}
 
 @app.get('/UsersWorstDeveloper')
 
@@ -112,7 +112,7 @@ def UsersWorstDeveloper(year):
     # Contar la frecuencia de cada desarrollador y obtener el top 3
     top_developers = merged_data['developer'].value_counts().nlargest(3)
 
-    return {"Los peores desarrolladores de este año son" :top_developers}
+    return {"Los peores desarrolladores de este año son" : set(top_developers)}
 
 @app.get('/sentiment_analysis')
 
@@ -136,5 +136,5 @@ def sentiment_analysis(developer_name):
         'Positivo': review_counts.get(2, 0)
     }
 
-    return {"Las reviews de este desarrollador son": result_dict}
+    return {"Las reviews de este desarrollador son": dict(result_dict)}
 
