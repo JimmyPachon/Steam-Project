@@ -124,7 +124,7 @@ def UsersWorstDeveloper(year):
 
     top_developers=top_developers[0:3]
 
-    top_developers=developers[0:3]
+    top_developers=top_developers[0:3]
 
     top_developers=top_developers.astype(str)
 
@@ -147,9 +147,9 @@ def sentiment_analysis(developer_name):
 
     # Crear un diccionario con las categorías y sus valores correspondientes
     result_dict = {'Desarrolladora': developer_name,
-        'Negativo': review_counts.get(0, 0),
-        'Neutral': review_counts.get(1, 0),
-        'Positivo': review_counts.get(2, 0)
+        'Negativo': int(review_counts.get(0, 0)),
+        'Neutral': int(review_counts.get(1, 0)),
+        'Positivo':int( review_counts.get(2, 0))
     }
 
     return {"Las reviews de este desarrollador son": result_dict}
