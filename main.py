@@ -59,7 +59,7 @@ def PlayTimeGenre(genre):
 
         
         
-        return year_max_jugado[0]
+        return year_max_jugado
 
 
 @app.get('/UserForGenre')
