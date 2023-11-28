@@ -65,7 +65,7 @@ def UserForGenre(genre):
     # Crear una lista de horas jugadas por año
     tiempo_jugado_por_año = df_usuario.groupby('release_date')['playtime_forever'].sum().to_dict()
 
-    return {"El usuario que mas ha jugado videojuegos de este genero es" : usuario_max_horas}
+    return {"El usuario que mas ha jugado videojuegos de este genero es" : usuario_max_horas,"Su distribución de horas jugando el género es":tiempo_jugado_por_año}
 
 @app.get('/UsersRecommend')
 
