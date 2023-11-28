@@ -93,9 +93,10 @@ def UsersRecommend(year):
     merged_data = pd.merge(filtered_reviews, user_items, on='item_id', how='left')
 
     # Contar la frecuencia de cada item y obtener el top 3
-    top_games = merged_data['item_name'].value_counts().nlargest(3)
+    top_games = merged_data['item_name'].value_counts()
+    top_games= sorted(top_games, reverse=True)[0:3]
 
-    return {"Los 3 juegos más recomendados para este año son" : {"top 1": int(top_games[0]),"top 2": int(top_games[1]),"top3": int(top_games[2]) }}
+    return {"Los 3 juegos más recomendados para este año son" : {"top 1": top_games[0],"top 2": top_games[1],"top3": top_games[2] }}
 
 @app.get('/UsersWorstDeveloper')
 
