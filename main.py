@@ -86,24 +86,24 @@ def UserForGenre(genre):
 def UsersRecommend(year):
 
     # Filtrar user_reviews por el año dado y por la condición de recomendación y revisión
-    filtered_reviews = user_reviews[(user_reviews['posted'] == year) & (user_reviews['recommend'] == "True") & ((user_reviews['review'] == "1") | (user_reviews['review'] == "2"))]
+    filtered_reviews = user_reviews[(user_reviews['posted'] == str(year)) & (user_reviews['recommend'] == "True") & ((user_reviews['review'] == "1") | (user_reviews['review'] == "2"))]
 
 
     # Merge para obtener los nombres de los items
     merged_data = pd.merge(filtered_reviews, user_items, on='item_id', how='left')
 
     # Contar la frecuencia de cada item y obtener el top 3
-    top_games = merged_data['item_name'].value_counts()
-    top_games= sorted(top_games, reverse=True)[0:3]
+    top_games = merged_data['item_name'].value_counts().nlargest(3)
+    
 
-    return {"Los 3 juegos más recomendados para este año son" : list(top_games)}
+    return {"Los 3 juegos más recomendados para este año son" : top_games}
 
 @app.get('/UsersWorstDeveloper')
 
 def UsersWorstDeveloper(year):
 
     # Filtrar user_reviews por el año dado y por la condición de no recomendación y revisión igual a 0
-    filtered_reviews = user_reviews[(user_reviews['posted'] == year) & (user_reviews['recommend'] == 'False') & (user_reviews['review'] == 0)]
+    filtered_reviews = user_reviews[(user_reviews['posted'] == str(year)) & (user_reviews['recommend'] == 'False') & (user_reviews['review'] == 0)]
 
     # Merge para obtener los desarrolladores correspondientes
     merged_data = pd.merge(filtered_reviews, steam_games, on='item_id', how='left')
@@ -111,7 +111,7 @@ def UsersWorstDeveloper(year):
     # Contar la frecuencia de cada desarrollador y obtener el top 3
     top_developers = merged_data['developer'].value_counts().nlargest(3)
 
-    return {"Los peores desarrolladores de este año son" : set(top_developers)}
+    return {"Los peores desarrolladores de este año son" : top_developers}
 
 @app.get('/sentiment_analysis')
 
@@ -135,5 +135,5 @@ def sentiment_analysis(developer_name):
         'Positivo': review_counts.get(2, 0)
     }
 
-    return {"Las reviews de este desarrollador son": dict(result_dict)}
+    return {"Las reviews de este desarrollador son": result_dict}
 
