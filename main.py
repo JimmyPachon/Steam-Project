@@ -16,10 +16,6 @@ user_reviews=pd.read_csv('datos/user_reviews.csv',sep=';',encoding='utf-8')
 user_reviews['review'] = pd.to_numeric(user_reviews['review'], errors='coerce')
 
 
-@app.get("/")
-def read_root():
-    return {"Mensaje": "A continuación se encuentran las funciones solicitadas para el sistema de recomedacion de steam, poner al final de la URL /docs."}
-
 # Función para convertir la cadena a un conjunto
 def convert_to_set(column):
     try:
@@ -32,6 +28,13 @@ def convert_to_set(column):
 
 # Aplicar la función a la columna 'genres'
 user_items['genres'] = user_items['genres'].apply(convert_to_set)
+
+
+@app.get("/")
+def read_root():
+    return {"Mensaje": "A continuación se encuentran las funciones solicitadas para el sistema de recomedacion de steam, poner al final de la URL /docs."}
+
+
 
 
 @app.get('/PlayTimeGenre')
