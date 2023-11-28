@@ -38,8 +38,7 @@ user_items['genres'] = user_items['genres'].apply(convert_to_set)
 
 def PlayTimeGenre(genre):
 
-        print("error 1")
-
+        return 0
 
         #Filtrar el DataFrame para el género específico
     
