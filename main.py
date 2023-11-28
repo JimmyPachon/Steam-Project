@@ -56,11 +56,10 @@ def PlayTimeGenre(genre):
         
         year_max_jugado = df_agrupado.loc[df_agrupado['playtime_forever'].idxmax(), 'release_date']
 
-        return 0
 
         
         
-        return year_max_jugado
+        return year_max_jugado[0]
 
 
 @app.get('/UserForGenre')
