@@ -38,17 +38,22 @@ user_items['genres'] = user_items['genres'].apply(convert_to_set)
 
 def PlayTimeGenre(genre):
 
+    try:
+
     
-   # Filtrar el DataFrame para el género específico
-    df_genero = user_items[user_items['genres'].apply(lambda x: genre in x)]
+       # Filtrar el DataFrame para el género específico
+        df_genero = user_items[user_items['genres'].apply(lambda x: genre in x)]
+    
+        # Agrupar por año y sumar los minutos jugados
+        df_agrupado = df_genero.groupby('release_date')['playtime_forever'].sum().reset_index()
+    
+        # Encontrar el año con la máxima cantidad de minutos jugados
+        year_max_jugado = df_agrupado.loc[df_agrupado['playtime_forever'].idxmax(), 'release_date']
+    
+        return {"El año mas jugado para este género es": year_max_jugado} 
 
-    # Agrupar por año y sumar los minutos jugados
-    df_agrupado = df_genero.groupby('release_date')['playtime_forever'].sum().reset_index()
-
-    # Encontrar el año con la máxima cantidad de minutos jugados
-    year_max_jugado = df_agrupado.loc[df_agrupado['playtime_forever'].idxmax(), 'release_date']
-
-    return {"El año mas jugado para este género es": year_max_jugado} 
+     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get('/UserForGenre')
 
