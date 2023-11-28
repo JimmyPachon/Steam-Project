@@ -42,10 +42,15 @@ Hay otros factores a tener en cuenta a la hora de recomendar un videojuego, por 
 **ARCHIVOS DEL REPOSITORIO**
 
 **EDA:** Es el análisis exploratorio de los datos, podrás observar las conclusiones sobre los datos después del ETL: valores faltantes, valores irrelevantes, outliers, posibilidades de consulta. El archivo completo POST-EDA, es decir después de quitar outliers y valores que no importan está en el siguiente drive: https://drive.google.com/drive/folders/1AVQ-j-ZdrWbhDtspaI8VnQ53wLmxuBFp .
+
 **ETL:** Es el archivo que se usó para tratar el conjunto de datos original que se encuentra en el siguiente link: https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj .
+
 **datos:**Esta carpeta contiene los datasets usados en la API como tal, la única diferencia de los datos completos es el dataset user_items_reducido, como su nombre lo indica ha sido minimizado para cumplir con los requerimientos técnicos. Sólo se tienen en cuenta los registros que tienen más de 10000 minutos de juego.
+
 **main:**Es el archivo principal de la API donde se encuentras las funciones que se despliegan en render.
+
 **requirements**: Son las librerias e instalaciones que solicita la API para su correcto funcionamiento.
+
 **Diccionario**: Es una imagen que contiene la información de los datasets usados en el proyecto.
 
 
