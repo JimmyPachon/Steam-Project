@@ -45,9 +45,9 @@ Hay otros factores a tener en cuenta a la hora de recomendar un videojuego, por 
 
 **ETL:** Es el archivo que se usó para tratar el conjunto de datos original que se encuentra en el siguiente link: https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj .
 
-**datos:**Esta carpeta contiene los datasets usados en la API como tal, la única diferencia de los datos completos es el dataset user_items_reducido, como su nombre lo indica ha sido minimizado para cumplir con los requerimientos técnicos. Sólo se tienen en cuenta los registros que tienen más de 10000 minutos de juego.
+**datos:** Esta carpeta contiene los datasets usados en la API como tal, la única diferencia de los datos completos es el dataset user_items_reducido, como su nombre lo indica ha sido minimizado para cumplir con los requerimientos técnicos. Sólo se tienen en cuenta los registros que tienen más de 10000 minutos de juego.
 
-**main:**Es el archivo principal de la API donde se encuentras las funciones que se despliegan en render.
+**main:** Es el archivo principal de la API donde se encuentras las funciones que se despliegan en render.
 
 **requirements**: Son las librerias e instalaciones que solicita la API para su correcto funcionamiento.
 
