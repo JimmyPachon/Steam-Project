@@ -41,7 +41,7 @@ def PlayTimeGenre(genre):
     try:
 
     
-       # Filtrar el DataFrame para el género específico
+        #Filtrar el DataFrame para el género específico
         df_genero = user_items[user_items['genres'].apply(lambda x: genre in x)]
     
         # Agrupar por año y sumar los minutos jugados
@@ -52,7 +52,8 @@ def PlayTimeGenre(genre):
     
         return {"El año mas jugado para este género es": year_max_jugado} 
 
-     except Exception as e:
+    except Exception as e:
+        
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get('/UserForGenre')
