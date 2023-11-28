@@ -102,12 +102,9 @@ def UsersRecommend(year):
 
     top_games=top_games[0:3]
 
-    valores = top_games.values
-    indices = top_games.index
+    top_games=top_games.astype(str)
 
-    top_games= dict(zip(indices, valores))
-
-    return {"Los 3 juegos más recomendados para este año son" : top_games}
+    return {"Los mejores juegos de este año son:": top_games}
 
 @app.get('/UsersWorstDeveloper')
 
@@ -127,12 +124,9 @@ def UsersWorstDeveloper(year):
 
     top_developers=top_developers[0:3]
 
-    top_games=top_games[0:3]
+    top_developers=developers[0:3]
 
-    valores = top_games.values
-    indices = top_games.index
-
-    top_games= dict(zip(indices, valores))
+    top_developers=top_developers.astype(str)
 
     return {"Los peores desarrolladores de este año son" : top_developers}
 
