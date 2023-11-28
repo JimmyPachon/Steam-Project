@@ -188,5 +188,5 @@ def recomendacion_juego(juego):
     juegos_recomendados = steam_games.iloc[indices_similares]['app_name']
     juegos_recomendados.reset_index(inplace=True,drop=True)
 
-    return {juegos_recomendados.astype(str)}
+    return {juegos_recomendados.to_string(index=True)}
 
