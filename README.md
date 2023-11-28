@@ -1,4 +1,4 @@
-#**SISTEMA DE RECOMENDACIÓN PARA LA PLATAFORMA DE STEAM**
+# <h1 align=center>**SISTEMA DE RECOMENDACIÓN PARA LA PLATAFORMA DE STEAM** </h1>
 
 En el presente repositorio se entregan todos los Datasets y toda la documentación de una API que implementa un sistema de recomedación por similitud de items, también se entrega un link a los datos originales sin procesar y sin limpiar para posibles consultas o mejoras al proyecto. Encontrarás un análisis exploratorio de datos en el notebook "EDA.ipynb" donde se analizan principalmente los valores que faltan y los posibles outliers, también se encuentra el archivo principal de la API "main.py" donde se encuentran las funciones de consulta de datos. 
 
@@ -6,7 +6,8 @@ Si quiere interactuar con la API, te dejo el link a continuación:
 
 **Link de la API:** https://steam-project-1b2p.onrender.com/docs
 
-#**DOCUMENTACIÓN API**
+**DOCUMENTACIÓN API**
+
 En la API encontrarás 6 funciones con las que podrás interactuar, cada una realiza consultas muy específicas:
 
 **PlayTimeGenre( genre ):** Recibe como parámetro un género de videojuegos y te regresa el año en el que más se jugó dicho género.
@@ -37,7 +38,7 @@ Se puede llegar a mejorar la recomendación de juegos agregando un peso de impor
 La primera impresión es importante, mejorar la interfaz gráfica de la API sería de gran importancia ya que por el momento es incómoda y muy superficial.
 Hay otros factores a tener en cuenta a la hora de recomendar un videojuego, por ejemplo el precio podría ser una forma de categorizarlos y sería una variable a tener en cuenta.
 
-#**ARCHIVOS DEL REPOSITORIO**
+**ARCHIVOS DEL REPOSITORIO**
 
 **EDA:** Es el análisis exploratorio de los datos, podrás observar las conclusiones sobre los datos después del ETL: valores faltantes, valores irrelevantes, outliers, posibilidades de consulta. El archivo completo POST-EDA, es decir después de quitar outliers y valores que no importan está en el siguiente drive: https://drive.google.com/drive/folders/1AVQ-j-ZdrWbhDtspaI8VnQ53wLmxuBFp .
 **ETL:** Es el archivo que se usó para tratar el conjunto de datos original que se encuentra en el siguiente link: https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj .
