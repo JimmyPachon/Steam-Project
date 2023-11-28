@@ -3,7 +3,7 @@
 
 En el presente repositorio se entregan todos los Datasets y toda la documentación de una API que implementa un sistema de recomedación por similitud de items, también se entrega un link a los datos originales sin procesar y sin limpiar para posibles consultas o mejoras al proyecto. Encontrarás un análisis exploratorio de datos en el notebook "EDA.ipynb" donde se analizan principalmente los valores que faltan y los posibles outliers, también se encuentra el archivo principal de la API "main.py" donde se encuentran las funciones de consulta de datos. 
 
-Si quiere interactuar con la API, te dejo el link a continuación:
+Si quieres interactuar con la API, te dejo el link a continuación:
 
 **Link de la API:** https://steam-project-1b2p.onrender.com/docs
 
@@ -40,9 +40,9 @@ Se podría hacer scrapping en la página de STEAM para buscar los datos que falt
 
 Se puede llegar a mejorar la recomendación de juegos agregando un peso de importancia a las diferentes características, puede que importe más el género que el desarrollador por ejemplo. También se podría extrapolar a un sistema user-item donde se recomienden juegos que a otros usuarios les ha gustado.
 
-La primera impresión es importante, mejorar la interfaz gráfica de la API sería de gran importancia ya que por el momento es incómoda y muy superficial.
+La primera impresión es importante, mejorar la interfaz gráfica de la API sería relevante ya que por el momento es incómoda y muy superficial.
 
-Hay otros factores a tener en cuenta a la hora de recomendar un videojuego, por ejemplo el precio podría ser una forma de categorizarlos y sería una variable a tener en cuenta.
+Hay otros factores a tener en cuenta a la hora de recomendar un videojuego, por ejemplo el precio podría ser una forma de categorizarlos y sería una variable sustancial.
 
 **ARCHIVOS DEL REPOSITORIO**
 
@@ -60,7 +60,7 @@ Hay otros factores a tener en cuenta a la hora de recomendar un videojuego, por 
 
 
 
-Para finalizar dejo el link al video explicativo del funcionamiento de la API:
+Para finalizar dejo el link al video explicativo del funcionamiento de la API: https://www.youtube.com/watch?v=PLkQ75UxTQc
 
 
 
