@@ -50,11 +50,13 @@ def PlayTimeGenre(genre):
         # Agrupar por año y sumar los minutos jugados
         df_agrupado = df_genero.groupby('release_date')['playtime_forever'].sum().reset_index()
 
-        return 0
+        
     
         # Encontrar el año con la máxima cantidad de minutos jugados
         
         year_max_jugado = df_agrupado.loc[df_agrupado['playtime_forever'].idxmax(), 'release_date']
+
+        return 0
 
         
         
