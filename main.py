@@ -13,8 +13,6 @@ steam_games=pd.read_csv('datos/steam_games.csv',sep=';',encoding='utf-8')
 user_reviews=pd.read_csv('datos/user_reviews.csv',sep=';',encoding='utf-8')
 
 
-user_reviews['review'] = pd.to_numeric(user_reviews['review'], errors='coerce')
-
 
 # Función para convertir la cadena a un conjunto
 def convert_to_set(column):
@@ -88,7 +86,7 @@ def UserForGenre(genre):
 def UsersRecommend(year):
 
     # Filtrar user_reviews por el año dado y por la condición de recomendación y revisión
-    filtered_reviews = user_reviews[(user_reviews['posted'] == year) & (user_reviews['recommend'] == 'True') & ((user_reviews['review'] == 1) | (user_reviews['review'] == 2))]
+    filtered_reviews = user_reviews[(user_reviews['posted'] == year) & (user_reviews['recommend'] == "True") & ((user_reviews['review'] == "1") | (user_reviews['review'] == "2"))]
 
 
     # Merge para obtener los nombres de los items
